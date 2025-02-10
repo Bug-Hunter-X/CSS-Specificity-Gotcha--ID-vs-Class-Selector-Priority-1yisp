@@ -1,0 +1,15 @@
+The following CSS code snippet demonstrates an uncommon issue related to the specificity of CSS selectors.  The unexpected behavior occurs due to the combination of an ID selector and a class selector within the same rule. The rule with the ID selector will override the rule with the class selector, even when the class selector seems more specific based on element hierarchy. 
+```css
+#myElement {
+  color: blue;
+}
+
+.myClass {
+  color: red;
+}
+
+#myElement.myClass {
+  color: green; /* This rule will be applied because of ID selector specificity */
+}
+```
+In this example, an element with both the ID "myElement" and the class "myClass" will unexpectedly be rendered with green text, instead of red as one might initially expect. This counter-intuitive behavior is a consequence of how CSS specificity works, prioritizing ID selectors above class selectors, even when the class selector appears more targeted. 
